@@ -82,5 +82,38 @@
 
 
 </body>
+<script type="text/javascript">
+  // Question: What does this code do?
+  $(".submit").on("click", function (event) {
+    event.preventDefault();
 
+    var newReservation = {
+      customerName: $("#name").val().trim(),
+      phoneNumber: $("#phone").val().trim(),
+      customerEmail: $("#email").val().trim(),
+      customerID: $("#unique-id").val().trim()
+    };
+
+    console.log(newReservation);
+
+    // Question: What does this code do??
+    $.post("/api/tables", newReservation, function (data) {
+      if(data) {
+        alert("Your reservation has been set!");
+      }
+      else {
+        alert("Sorry you are on the wait list");
+      }
+
+      $("#name").val("");
+      $("#phone").val("");
+      $("#email").val("");
+      $("#unique-id").val("");
+
+        
+      });
+
+  });
+
+</script>
 </html>
