@@ -27,6 +27,15 @@ app.get("/reserve", function(req, res) {
     return res.json(waitlist);
   });
 
+  app.post("/api/tables", function(req, res) {
+    var newReservation = req.body;
+    console.log(newReservation);
+   
+    tables.push(newReservation);
+   
+    res.json(newReservation);
+   });
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
