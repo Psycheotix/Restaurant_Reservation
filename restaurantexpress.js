@@ -7,6 +7,7 @@ var PORT = process.env.PORT || 3000;
 var tables = [];
 var waitlist= [];
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
